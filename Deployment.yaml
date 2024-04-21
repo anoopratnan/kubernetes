@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: acr-deployment
+  labels:
+    kind: front-end
+    app: myfrontend-app1
+spec:
+  selector:
+    matchLabels:
+      app: myfrontend-app
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myfrontend-app
+        kind: myfrontend-app
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+  replicas: 2
